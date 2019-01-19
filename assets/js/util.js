@@ -1,5 +1,15 @@
 (function($) {
+	$(function () {
+		$('.intro').addClass('go');
 
+		$('.reload').click(function () {
+			$('.intro').removeClass('go').delay(200).queue(function (next) {
+				$('.intro').addClass('go');
+				next();
+			});
+
+		});
+	})
 	/**
 	 * Generate an indented list of links from a nav. Meant for use with panel().
 	 * @return {jQuery} jQuery object.

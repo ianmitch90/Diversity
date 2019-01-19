@@ -6,165 +6,260 @@
 
 /* Image */
 
-	.image {
-		border: 0;
-		display: inline-block;
-		position: relative;
+.image {
+	border: 0;
+	display: inline-block;
+	position: relative;
+
+	img {
+		display: block;
+	}
+
+	&[data-position] {
+		img {
+			@include vendor('object-fit', 'cover');
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&[data-position="top left"] {
+		img {
+			@include vendor('object-position', 'top left');
+		}
+	}
+
+	&[data-position="top"] {
+		img {
+			@include vendor('object-position', 'top');
+		}
+	}
+
+	&[data-position="top right"] {
+		img {
+			@include vendor('object-position', 'top right');
+		}
+	}
+
+	&[data-position="right"] {
+		img {
+			@include vendor('object-position', 'right');
+		}
+	}
+
+	&[data-position="bottom right"] {
+		img {
+			@include vendor('object-position', 'bottom right');
+		}
+	}
+
+	&[data-position="bottom"] {
+		img {
+			@include vendor('object-position', 'bottom');
+		}
+	}
+
+	&[data-position="bottom left"] {
+		img {
+			@include vendor('object-position', 'bottom left');
+		}
+	}
+
+	&[data-position="left"] {
+		img {
+			@include vendor('object-position', 'left');
+		}
+	}
+
+	&[data-position="center"] {
+		img {
+			@include vendor('object-position', 'center');
+		}
+	}
+
+	&[data-position="25% 25%"] {
+		img {
+			@include vendor('object-position', '25% 25%');
+		}
+	}
+
+	&[data-position="75% 25%"] {
+		img {
+			@include vendor('object-position', '75% 25%');
+		}
+	}
+
+	&[data-position="75% 75%"] {
+		img {
+			@include vendor('object-position', '75% 75%');
+		}
+	}
+
+	&[data-position="25% 75%"] {
+		img {
+			@include vendor('object-position', '25% 75%');
+		}
+	}
+
+	&.left,
+	&.right {
+		max-width: 40%;
 
 		img {
-			display: block;
-		}
-
-		&[data-position] {
-			img {
-				@include vendor('object-fit', 'cover');
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-		&[data-position="top left"] {
-			img {
-				@include vendor('object-position', 'top left');
-			}
-		}
-
-		&[data-position="top"] {
-			img {
-				@include vendor('object-position', 'top');
-			}
-		}
-
-		&[data-position="top right"] {
-			img {
-				@include vendor('object-position', 'top right');
-			}
-		}
-
-		&[data-position="right"] {
-			img {
-				@include vendor('object-position', 'right');
-			}
-		}
-
-		&[data-position="bottom right"] {
-			img {
-				@include vendor('object-position', 'bottom right');
-			}
-		}
-
-		&[data-position="bottom"] {
-			img {
-				@include vendor('object-position', 'bottom');
-			}
-		}
-
-		&[data-position="bottom left"] {
-			img {
-				@include vendor('object-position', 'bottom left');
-			}
-		}
-
-		&[data-position="left"] {
-			img {
-				@include vendor('object-position', 'left');
-			}
-		}
-
-		&[data-position="center"] {
-			img {
-				@include vendor('object-position', 'center');
-			}
-		}
-
-		&[data-position="25% 25%"] {
-			img {
-				@include vendor('object-position', '25% 25%');
-			}
-		}
-
-		&[data-position="75% 25%"] {
-			img {
-				@include vendor('object-position', '75% 25%');
-			}
-		}
-
-		&[data-position="75% 75%"] {
-			img {
-				@include vendor('object-position', '75% 75%');
-			}
-		}
-
-		&[data-position="25% 75%"] {
-			img {
-				@include vendor('object-position', '25% 75%');
-			}
-		}
-
-		&.left,
-		&.right {
-			max-width: 40%;
-
-			img {
-				width: 100%;
-			}
-		}
-
-		&.left {
-			float: left;
-			margin: 0 2rem 2rem 0;
-			top: 0.25rem;
-		}
-
-		&.right {
-			float: right;
-			margin: 0 0 2rem 2rem;
-			top: 0.25rem;
-		}
-
-		&.fit {
-			display: block;
-			margin: 0 0 _size(element-margin) 0;
 			width: 100%;
-
-			img {
-				width: 100%;
-			}
 		}
+	}
 
-		&.main {
-			display: block;
-			margin: (_size(element-margin) * 1.5) 0;
+	&.left {
+		float: left;
+		margin: 0 2rem 2rem 0;
+		top: 0.25rem;
+	}
+
+	&.right {
+		float: right;
+		margin: 0 0 2rem 2rem;
+		top: 0.25rem;
+	}
+
+	&.fit {
+		display: block;
+		margin: 0 0 _size(element-margin) 0;
+		width: 100%;
+
+		img {
 			width: 100%;
+		}
+	}
 
-			img {
-				width: 100%;
-			}
+	&.main {
+		display: block;
+		margin: (_size(element-margin) * 1.5) 0;
+		width: 100%;
 
-			&:first-child {
-				margin-top: 0;
-			}
+		img {
+			width: 100%;
 		}
 
-		&.fill {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	&.fill {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		img {
+			//@include vendor('object-fit', 'cover');
+			//@include vendor('object-position', 'center');
 			height: 100%;
 			left: 0;
 			position: absolute;
 			top: 0;
 			width: 100%;
-
-			img {
-				//@include vendor('object-fit', 'cover');
-				//@include vendor('object-position', 'center');
-				height: 100%;
-				left: 0;
-				position: absolute;
-				top: 0;
-				width: 100%;
-			}
 		}
 	}
+}
+
+svg.intro {
+	background: linear-gradient(135deg, #aa3bb1, #582a7e);
+	max-width: 800px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 30px 50px -20px rgb(46, 6, 66);
+
+	.text {
+		display: none;
+	}
+
+	&.go {
+		.text {
+			font-family: Arial, sans-serif;
+			font-size: 20px;
+			text-transform: uppercase;
+			display: block;
+		}
+
+		.text-stroke {
+			fill: none;
+			stroke: #51256f;
+			stroke-width: 2.8px;
+			stroke-dashoffset: -900;
+			stroke-dasharray: 900;
+			stroke-linecap: butt;
+			stroke-linejoin: round;
+			animation: dash 2.5s ease-in-out forwards;
+		}
+
+		.text-stroke:nth-child(2) {
+			animation-delay: .3s;
+		}
+
+		.text-stroke:nth-child(3) {
+			animation-delay: .9s;
+		}
+
+		.text-stroke-2 {
+			stroke: #f6bdfa;
+			animation-delay: 1.2s;
+		}
+
+		.text-stroke:nth-child(5) {
+			animation-delay: 1.5s;
+		}
+
+		.text-stroke:nth-child(6) {
+			animation-delay: 1.8s;
+		}
+	}
+}
+
+@keyframes dash {
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+.reload {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	background: #fff;
+	border: none;
+	border-radius: 20px;
+	outline: none !important;
+	font-size: 11px;
+	line-height: 1.5;
+	padding: 8px 12px;
+	text-transform: uppercase;
+	z-index: 10;
+	cursor: pointer;
+	box-shadow: 0 6px 7px #350e4c;
+	transition: all .1s cubic-bezier(.67, .13, .1, .81);
+
+	&:hover {
+		box-shadow: 0 4px 4px #350e4c;
+		transform: translateY(1px);
+	}
+
+	&:active {
+		box-shadow: 0 1px 2px #244B94;
+		transform: translateY(2px);
+	}
+
+	svg {
+		vertical-align: middle;
+		position: relative;
+		top: -2px;
+	}
+}
